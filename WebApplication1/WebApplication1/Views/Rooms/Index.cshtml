@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>List of Rooms</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Style</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in WebApplication1.Controllers.RoomsController.rooms)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => room.Style)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = room.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = room.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = room.Id })
+            </td>
+        </tr>
+        }
+        <tr>
+            <td>
+                @Html.ActionLink("Create new", "Create")
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>List of Brand</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var soda in WebApplication1.Controllers.SodasController.sodas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => soda.Brand)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = soda.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = soda.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = soda.Id })
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                @Html.ActionLink("Create new", "Create")
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
